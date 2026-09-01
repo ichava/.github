@@ -72,8 +72,8 @@ Requires PHP 8.4+ and Laravel 13.
   open help the next person too.
 - Docs are never finished — pull requests are welcome on
   [`documentation`](https://github.com/ichava/documentation).
-- Security: see the repository's `SECURITY.md` and report privately, never via a
-  public issue.
+- Security: [security@simtabi.com](mailto:security@simtabi.com) — never a public issue.
+  See the [security policy](https://github.com/ichava/.github/security/policy).
 
 ## About Simtabi
 
