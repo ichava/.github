@@ -6,9 +6,8 @@ Contributions are welcome on every ichava repository.
 
 - **Open an issue first** for anything larger than a typo fix. It saves you
   building something we were about to change.
-- Read the package's `docs/` tree, or
-  [`ichava/documentation`](https://github.com/ichava/documentation), so the change
-  fits the way the ecosystem is put together.
+- Read the package's `docs/` tree, and [`core`'s](https://github.com/ichava/core/tree/main/docs)
+  for the engine, so the change fits the way the ecosystem is put together.
 
 ## Pull requests
 
