@@ -44,24 +44,24 @@ a job for CI rather than for you.
 | Package | What it does |
 | --- | --- |
 | [`core`](https://github.com/ichava/core) | The engine — registry, services, seeder, scaffolder, Blade base component, migrations. No HTTP surface |
-| [`tabler-icons`](https://github.com/ichava/tabler-icons) | Tabler icons, outline and filled, served through the engine |
-| [`flag-icons`](https://github.com/ichava/flag-icons) | Country flags in `1x1` and `4x3`, from `lipis/flag-icons` |
-| [`emoji-sets`](https://github.com/ichava/emoji-sets) | Twemoji and OpenMoji wiring — engine and CDN config; ships no assets yet |
-| [`browser`](https://github.com/ichava/browser) | Optional HTTP layer — REST API, web routes, middleware, Vue/Vite SPA |
+| [`icon-sets-tabler`](https://github.com/ichava/icon-sets-tabler) | Tabler icons, outline and filled, served through the engine |
+| [`icon-sets-flag`](https://github.com/ichava/icon-sets-flag) | Country flags in `1x1` and `4x3`, from `lipis/flag-icons` |
+| [`icon-sets-emoji`](https://github.com/ichava/icon-sets-emoji) | Emoji from Twemoji, OpenMoji colour and OpenMoji black |
+| [`icon-browser`](https://github.com/ichava/icon-browser) | Optional HTTP layer — REST API, web routes, middleware, Vue/Vite SPA |
 | [`motion`](https://github.com/ichava/motion) | `@ichava/motion` — framework-agnostic SVG animation engine, no runtime dependencies |
 | [`maintainer-toolkit`](https://github.com/ichava/maintainer-toolkit) | Python, Docker-first. Refreshes vendored assets from upstream by pull request |
-| [`documentation`](https://github.com/ichava/documentation) | Long-form docs, grouped by package. Plain markdown, browseable on GitHub |
 
-Per-pack icon counts live in the
-[documentation package table](https://github.com/ichava/documentation#packages),
-measured rather than quoted. Browse
+Each package documents itself in its own `docs/` tree. Per-pack icon counts are
+measured daily into core's
+[`icon-sets.json`](https://github.com/ichava/core/blob/main/icon-sets.json) rather
+than quoted here. Browse
 [all repositories](https://github.com/orgs/ichava/repositories) for the rest.
 
 ## Install
 
 Every package is at **`v0.1.0`** and none is published to Packagist yet, so
 installation is from the repositories rather than by name. Start with
-[`core/installation.md`](https://github.com/ichava/documentation/blob/main/core/installation.md),
+[core's installation guide](https://github.com/ichava/core/blob/main/docs/installation.md),
 then add a pack.
 
 Requires PHP 8.4+ and Laravel 13.
@@ -70,8 +70,7 @@ Requires PHP 8.4+ and Laravel 13.
 
 - Questions and ideas: open an issue on the package's repository. Answers in the
   open help the next person too.
-- Docs are never finished — pull requests are welcome on
-  [`documentation`](https://github.com/ichava/documentation).
+- Docs are never finished — pull requests are welcome on any package's `docs/`.
 - Security: [security@simtabi.com](mailto:security@simtabi.com) — never a public issue.
   See the [security policy](https://github.com/ichava/.github/security/policy).
 

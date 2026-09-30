@@ -3,8 +3,9 @@
 Thanks for using a Simtabi open source project. Here is how to get help, fastest
 first:
 
-1. **Documentation** — [`ichava/documentation`](https://github.com/ichava/documentation),
-   grouped by package. Plain markdown, browseable on GitHub.
+1. **Documentation** — each package's own `docs/` tree, starting with
+   [core's installation guide](https://github.com/ichava/core/blob/main/docs/installation.md).
+   Plain markdown, browseable on GitHub.
 2. **Issues** — for bugs and feature requests, open an issue on the relevant
    repository. Search existing issues first; use the issue templates when offered.
 3. **Email** — for anything that does not fit an issue tracker,
