@@ -34,8 +34,8 @@ not.
 ichava splits that into parts that can each be replaced. `core` is the engine —
 registry, services, seeder, scaffolder, a Blade base component, migrations — with
 **no HTTP surface and no JS toolchain**, so it stays headless-friendly. Icon packs
-are separate packages that plug into it. `browser` adds the REST API and a Vue SPA
-if you want humans searching the set. `maintainer-toolkit` refreshes each pack's
+are separate packages that plug into it. `icon-browser`, a licensed add-on, adds the REST API
+and a React UI if you want humans searching the set. `icon-sets-sync` refreshes each pack's
 vendored assets from upstream and opens the pull request, so a pack going stale is
 a job for CI rather than for you.
 
@@ -47,9 +47,10 @@ a job for CI rather than for you.
 | [`icon-sets-tabler`](https://github.com/ichava/icon-sets-tabler) | Tabler icons, outline and filled, served through the engine |
 | [`icon-sets-flag`](https://github.com/ichava/icon-sets-flag) | Country flags in `1x1` and `4x3`, from `lipis/flag-icons` |
 | [`icon-sets-emoji`](https://github.com/ichava/icon-sets-emoji) | Emoji from Twemoji, OpenMoji colour and OpenMoji black |
-| [`icon-browser`](https://github.com/ichava/icon-browser) | Optional HTTP layer — REST API, web routes, middleware, Vue/Vite SPA |
-| [`motion`](https://github.com/ichava/motion) | `@ichava/motion` — framework-agnostic SVG animation engine, no runtime dependencies |
-| [`maintainer-toolkit`](https://github.com/ichava/maintainer-toolkit) | Python, Docker-first. Refreshes vendored assets from upstream by pull request |
+| `icon-browser` | Optional HTTP layer — REST API, web routes, middleware and the React browser UI. A licensed, private add-on since 2026-10-24; core works headless without it |
+| [`js-motion`](https://github.com/ichava/js-motion) | `@ichava/js-motion` — framework-agnostic SVG animation engine, no runtime dependencies |
+| [`icon-sets-sync`](https://github.com/ichava/icon-sets-sync) | Go, with a local web UI (`icon-sets-sync serve`). Refreshes vendored assets from upstream by pull request |
+| [`js-ui-kernel`](https://github.com/ichava/js-ui-kernel) | `@ichava/js-ui-kernel` — framework-agnostic domain kernel shared by the React UI packages |
 
 Each package documents itself in its own `docs/` tree. Per-pack icon counts are
 measured daily into core's
