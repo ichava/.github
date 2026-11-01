@@ -47,6 +47,25 @@ Licensing questions go to imani@simtabi.com.
 Do not commit lock files (`composer.lock`, `package-lock.json` and the like) in
 any ichava repository. They are gitignored, and CI resolves dependencies fresh.
 
+## Releases and versioning
+
+- **A version tag is pushed only for final code.** `vX.Y.Z` marks a release, nothing else. To
+  try a release build first, push a pre-release tag, `vX.Y.Z-rc.N`: it is cached like any other
+  tag, but it uses up no release number.
+- **A public tag is never moved, deleted or reused.** The first time anything fetches a tag, its
+  contents are cached for good: by the Go module proxy and `sum.golang.org` for any public GitHub
+  tag, by Packagist for a Composer package, and by npm and every consumer pinning a git tag for a
+  JavaScript one. Moving the tag afterwards does not change what those serve; it only makes them
+  disagree with git. The next fix gets the next number.
+- **A tag ruleset enforces this.** Applied once the v0.1.0 tags are pushed, it blocks deleting,
+  updating and force-pushing `v*` (and `src/v*` where a Go module lives in `src/`) tags on every
+  ichava repository. The v0.1.0 publication as a single commit was the one planned exception.
+- **A bad release is retracted, not replaced.** For a Go module, add `retract vX.Y.Z // <reason>`
+  to `go.mod` in the next release; for a Composer package, mark the version as bad in
+  `CHANGELOG.md` and the GitHub release notes, since Packagist has no per-version retraction; for
+  a JavaScript package, do the same, and run `npm deprecate` on the version if it is published to
+  npm. Then ship the fix as the next version.
+
 ## Reporting bugs
 
 Open an issue on the repository the bug lives in, with the package version, the
