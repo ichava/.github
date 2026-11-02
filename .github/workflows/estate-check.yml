@@ -1,0 +1,44 @@
+name: Estate check
+
+# Weekly guard over every non-archived ichava repository (final audit X-01, X-03, X-08, XR-8):
+# no tracked lock file except go.sum, nothing tracked under demos/, and the coupled packages'
+# latest vX.Y.Z tags on one minor. Logic and the repository floor: estate/estate_check.py.
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  estate:
+    name: estate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      # Private repositories need a token; GITHUB_TOKEN reaches only this one. Read-only, every
+      # repository the app is installed on in ichava.
+      - name: Mint a read-only token for ichava
+        id: token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.REFRESH_APP_CLIENT_ID }}
+          private-key: ${{ secrets.REFRESH_APP_PRIVATE_KEY }}
+          owner: ichava
+          permission-contents: read
+
+      - name: Check the estate
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+        run: python3 estate/estate_check.py --org ichava --floor 12
