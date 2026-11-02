@@ -49,17 +49,20 @@ any ichava repository. They are gitignored, and CI resolves dependencies fresh.
 
 ## Releases and versioning
 
-- **A version tag is pushed only for final code.** `vX.Y.Z` marks a release, nothing else. To
-  try a release build first, push a pre-release tag, `vX.Y.Z-rc.N`: it is cached like any other
-  tag, but it uses up no release number.
-- **A public tag is never moved, deleted or reused.** The first time anything fetches a tag, its
-  contents are cached for good: by the Go module proxy and `sum.golang.org` for any public GitHub
-  tag, by Packagist for a Composer package, and by npm and every consumer pinning a git tag for a
-  JavaScript one. Moving the tag afterwards does not change what those serve; it only makes them
-  disagree with git. The next fix gets the next number.
+- **A version tag is pushed only for final code.** `vX.Y.Z` marks a release, nothing else. To try a
+  release build first, push a pre-release tag, `vX.Y.Z-rc.N`, which uses up no release number. In the
+  ichava repositories it runs the same release workflow and publishes as a GitHub pre-release,
+  with no CHANGELOG section of its own required.
+- **A public tag is never moved, deleted or reused.** Once a tag has been fetched, moving it makes
+  consumers of the same version disagree. Composer and npm git dependencies resolve the tag afresh, so
+  new installs get the moved commit while every existing lockfile and cache keeps the old one (an npm
+  registry version cannot be republished at all). For a Go module, the module proxy keeps the copy it
+  first served and `sum.golang.org` records its checksum, so `go` fetches after the move fail
+  verification. The next fix gets the next number.
 - **A tag ruleset enforces this.** Applied once the v0.1.0 tags are pushed, it blocks deleting,
   updating and force-pushing `v*` (and `src/v*` where a Go module lives in `src/`) tags on every
-  ichava repository. The v0.1.0 publication as a single commit was the one planned exception.
+  public ichava repository; GitHub's free plan gives a private repository no rulesets, so there
+  the rule is held by practice. The v0.1.0 publication as a single commit was the one planned exception.
 - **A bad release is retracted, not replaced.** For a Go module, add `retract vX.Y.Z // <reason>`
   to `go.mod` in the next release; for a Composer package, mark the version as bad in
   `CHANGELOG.md` and the GitHub release notes, since Packagist has no per-version retraction; for
