@@ -78,8 +78,8 @@ Requires PHP 8.4+ and Laravel 13.
 ## About Simtabi
 
 ichava is built and maintained by the team at [Simtabi](https://simtabi.com), a
-software design agency and design & branding studio operating across New York,
-Delaware, and North Carolina, USA. Whenever we build something reusable, we share
+software design agency and design & branding studio operating in Delaware and
+North Carolina and serving clients nationwide, USA. Whenever we build something reusable, we share
 it — you'll find it across [@ichava](https://github.com/ichava),
 [@laranail](https://github.com/laranail) and
 [@simtabi](https://github.com/simtabi).
