@@ -62,7 +62,7 @@ COUPLED = (
     "icon-browser",
     "icon-sets-flag",
     "icon-sets-tabler",
-    "icon-sets-emoji",
+    "icon-sets-twemoji",  # renamed from icon-sets-emoji on 2026-11-05
     "icon-sets-bundled",
     "icon-sets-metronic",
     "icon-sets-package-scaffolder",
