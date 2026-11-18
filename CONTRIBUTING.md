@@ -42,7 +42,7 @@ them, maintainers included, is a contributor and not a licensor.
   `icon-sets-metronic`), you contribute under your agreement with Simtabi LLC,
   and the result is Simtabi LLC's.
 
-Licensing questions go to imani@simtabi.com.
+Licensing questions go to opensource@simtabi.com.
 
 Do not commit lock files (`composer.lock`, `package-lock.json` and the like) in
 any ichava repository. They are gitignored, and CI resolves dependencies fresh.

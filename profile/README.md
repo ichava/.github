@@ -67,7 +67,7 @@ then add a pack.
 
 Requires PHP 8.4+ and Laravel 13.
 
-## Need a hand?
+## Get in touch
 
 - Questions and ideas: open an issue on the package's repository. Answers in the
   open help the next person too.
